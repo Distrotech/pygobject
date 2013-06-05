@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Pygobject by Distrotech</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Pygobject</h1>
+          <h2>Mirror of git://git.gnome.org/pygobject</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/Distrotech/pygobject/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/Distrotech/pygobject/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/Distrotech/pygobject" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="pygobject" class="anchor" href="#pygobject"><span class="octicon octicon-link"></span></a>PyGObject</h1>
+
+<p>Original authors:   James Henstridge <a href="mailto:james@daa.com.au">james@daa.com.au</a>
+                    Johan Dahlin <a href="mailto:johan@gnome.org">johan@gnome.org</a></p>
+
+<p>Current maintainers:  Tomeu Vizoso <a href="mailto:tomeu.vizoso@collabora.co.uk">tomeu.vizoso@collabora.co.uk</a>
+                      Martin Pitt <a href="mailto:martinpitt@gnome.org">martinpitt@gnome.org</a>
+                      Paolo Borelli <a href="mailto:pborelli@gnome.org">pborelli@gnome.org</a>
+                      Ignacio Casal Quinteiro <a href="mailto:icq@gnome.org">icq@gnome.org</a>
+                      Sebastian Pölsterl <a href="mailto:sebp@k-d-w.org">sebp@k-d-w.org</a></p>
+
+<p>This archive contains bindings for the GLib, and GObject,
+to be used in Python. It is a fairly complete set of bindings,
+it's already rather useful, and is usable to write moderately
+complex programs.  (see the examples directory for some examples
+of the simpler programs you could write).</p>
+
+<p>If you have any enhancements or bug reports, please file them in
+bugzilla at:
+  <a href="http://bugzilla.gnome.org/enter_bug.cgi?product=pygobject">http://bugzilla.gnome.org/enter_bug.cgi?product=pygobject</a></p>
+
+<p>If you have a patch, file the bug first and then use the "create new
+attachment" link on the bug's info page.  My preferred format for
+patches is unified diff format (ie. diff -u).  Please don't send me
+diffs which don't have any context, as these make it very difficult to
+see what the patch does.</p>
+
+<h1>
+<a name="new-versions" class="anchor" href="#new-versions"><span class="octicon octicon-link"></span></a>New Versions</h1>
+
+<p>New versions of this package can be found at:
+  <a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/">http://ftp.gnome.org/pub/GNOME/sources/pygobject/</a></p>
+
+<h1>
+<a name="mailing-list" class="anchor" href="#mailing-list"><span class="octicon octicon-link"></span></a>Mailing list</h1>
+
+<p>pygobject development is discussed on the GNOME python-hackers mailing list.
+You can subscribe to it through the web interface:</p>
+
+<p><a href="https://mail.gnome.org/mailman/listinfo/python-hackers-list/">https://mail.gnome.org/mailman/listinfo/python-hackers-list/</a></p>
+
+<h1>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h1>
+
+<ul>
+<li>C compiler (GCC and MSVC supported)</li>
+<li>Python 2.7 or higher</li>
+<li>Glib/Gio 2.35.9 or higher</li>
+<li>libffi (optional)</li>
+</ul><h1>
+<a name="copyright-information" class="anchor" href="#copyright-information"><span class="octicon octicon-link"></span></a>Copyright Information</h1>
+
+<p>This software is covered by the GNU Lesser General Public Licence
+(version 2.1, or if you choose, a later version).  Basically just don't
+say you wrote bits you didn't.</p>
+
+<h1>
+<a name="compilation" class="anchor" href="#compilation"><span class="octicon octicon-link"></span></a>Compilation</h1>
+
+<p>PyGObject uses the standard autotools for the build infrastructure.  To
+build, it should be as simple as running:</p>
+
+<pre><code>$ ./configure --prefix=&lt;prefix where python is installed&gt;
+$ make
+$ make install
+</code></pre>
+
+<p>By default, configure searches for a few well-known Python interpreter
+names, such as "python3", "python2", "python2.7", or "python".  If your
+Python interpreter isn't in the path, or is not called "python", you can
+configure pygobject to build against that with --with-python= or
+setting the PYTHON environment variable:</p>
+
+<p>$ ./configure --with-python=python3
+   $ PYTHON=python3.2 ./configure
+   $ ./configure --with-python=~/my-patched-python/python</p>
+
+<p>If configure can't find GTK+, you may need to set the PKG_CONFIG_PATH
+environment variable to help it find the libraries.</p>
+
+<p>The "make install" target will generate normal and optimised bytecode
+for all the .py files.</p>
+
+<p>Note. If you're installing to another prefix than the one where python
+is installed you'll need to set the PYTHONPATH variable to the
+$prefix/lib/pythonX.Y/site-packages directory created by
+the PyGObject installation.</p>
+
+<h1>
+<a name="tests" class="anchor" href="#tests"><span class="octicon octicon-link"></span></a>Tests</h1>
+
+<p>After having compiled and installed pygobject, you may want to test them.
+There are a number of example programs available in the examples/
+subdirectory.</p>
+
+<h1>
+<a name="getting-help" class="anchor" href="#getting-help"><span class="octicon octicon-link"></span></a>Getting Help</h1>
+
+<p>If you have questions about programming with PyGObject, you might want to
+check the documentation on</p>
+
+<p><a href="https://live.gnome.org/PyGObject/">https://live.gnome.org/PyGObject/</a></p>
+
+<p>If that does not help, send a message to the mailing list (information on
+subscribing is above), or join #python on irc.gnome.org.</p>
+        </section>
+
+        <footer>
+          Pygobject is maintained by <a href="https://github.com/Distrotech">Distrotech</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
